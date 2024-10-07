@@ -1,15 +1,13 @@
     import bcryptjs from 'bcryptjs';
     import { User } from '../models/user.model.js'
     import bcrypt from 'bcryptjs';
-    import { generateTokenAndSetCookie } from '../utils/generateTokenAndSetCookie.js';
+    import { generateTokenAndSetCookies } from '../utils/generateTokenAndSetCookie.js';
 
     export const signup = async (req, res ) => {
     const {email,password,name} = req.body;
-    console.log("Headers: ", req.headers);  // Log headers
-    console.log("Body: ", req.body);        // Log body
 
     try{
-    if (!email || !password || !name) { // fix typo here
+    if (!email || !password || !name) { 
     throw new Error("All fields are required");
     }
 
